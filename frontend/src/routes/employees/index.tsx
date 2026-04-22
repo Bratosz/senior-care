@@ -1,8 +1,8 @@
 import {createFileRoute} from '@tanstack/react-router'
-import EmployeesPage from "@/routes/employees/-pages/EmployeesPage.tsx";
+import EmployeesListPage from "@/features/employees/pages/EmployeesListPage.tsx";
 
 export const Route = createFileRoute('/employees/')({
-    component: EmployeesPage,
+    component: EmployeesListPage,
     loader: async ({}) => {
 
         const rep = await fetch("https://jsonplaceholder.typicode.com/users")

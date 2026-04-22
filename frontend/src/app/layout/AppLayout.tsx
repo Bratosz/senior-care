@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import {Layout} from 'antd'
 import {Outlet} from '@tanstack/react-router'
-import AppMenu from '@/layout/menu/AppMenu.tsx'
-import AppContent from '@/layout/AppContent.tsx'
+import AppMenu from '@/app/layout/menu/AppMenu.tsx'
+import AppContent from '@/app/layout/AppContent.tsx'
 
 const { Sider } = Layout;
 
