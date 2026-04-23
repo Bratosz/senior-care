@@ -1,5 +1,5 @@
 import { createRouter, RouterProvider } from '@tanstack/react-router'
-import { routeTree } from '@/routeTree.gen'
+import { routeTree } from '@/routeTree.gen.ts'
 
 declare module '@tanstack/react-router' {
   interface Register {
@@ -7,9 +7,7 @@ declare module '@tanstack/react-router' {
   }
 }
 
-const router = createRouter({
-  routeTree
-})
+const router = createRouter({routeTree})
 
 function App() {
   return (

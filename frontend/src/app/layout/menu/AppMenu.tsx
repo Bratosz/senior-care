@@ -23,9 +23,6 @@ const getPlainItem = (
     return { key, icon, children, label} as MenuItem;
 }
 
-// const patientsRoute = PatientsRoute
-
-
 const items: MenuItem[] = [
     getRouteItem('Pacjenci', '/patients', <SolutionOutlined/>),
     getRouteItem('Personel', '/employees', <TeamOutlined/>),
@@ -34,8 +31,10 @@ const items: MenuItem[] = [
         getRouteItem('Bill', '4'),
         getRouteItem('Alex', '5'),
     ]),
-    getRouteItem('Team', 'sub2', <TeamOutlined/>,
-        [getRouteItem('Team 1', '6'), getRouteItem('Team 2', '8')]),
+    getRouteItem('Team', 'sub2', <TeamOutlined/>, [
+        getRouteItem('Team 1', '6'),
+        getRouteItem('Team 2', '8')
+    ]),
     getRouteItem('Files', '9', <FileOutlined/>),
 ];
 

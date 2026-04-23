@@ -1,11 +1,11 @@
 import React from 'react'
 import {TeamOutlined} from '@ant-design/icons';
-import MenuLink from '@/app/layout/components/MenuLink.tsx'
+import MenuLink from '@/app/layout/menu/MenuLink.tsx'
 
 const LinkPatients: React.FC = () => {
     return <>
         <MenuLink
-            to='/personnel'
+            to='/employees'
             text='Personel'
             icon={<TeamOutlined/>}
         />

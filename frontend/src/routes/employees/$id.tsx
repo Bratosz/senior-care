@@ -5,6 +5,11 @@ type EmployeeNotFound = {
     message: string
 }
 
+type User = {
+    id: string
+    name: string
+}
+
 export const Route = createFileRoute('/employees/$id')({
     component: RouteComponent,
     errorComponent: ({error}) => {
@@ -23,14 +28,13 @@ export const Route = createFileRoute('/employees/$id')({
             throw new Error(`Failed to fetch employee with id ${params.id}`)
         }
 
-        const user = await res.json()
+        const user: User = await res.json()
         console.log(user)
         if (!user) {
             throw notFound({data: {id: params.id, message: "Employee not found"}})
         }
 
-
-        return {user}
+        return user
     }
 })
 
@@ -38,5 +42,5 @@ function RouteComponent() {
     const data = Route.useLoaderData()
     console.log(data)
 
-    return <div>Hello "/employees/$id"!</div>
+    return <div>Hello employee with id {data.name}</div>
 }
