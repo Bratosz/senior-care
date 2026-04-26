@@ -7,6 +7,7 @@ import io.ktor.server.resources.get
 import io.ktor.server.resources.post
 import io.ktor.server.resources.put
 import io.ktor.server.routing.Route
+import io.ktor.server.routing.get
 import pl.bratosz.seniorcarebackend.modules.user.RegisterUser
 import pl.bratosz.seniorcarebackend.modules.user.UserService
 import pl.bratosz.seniorcarebackend.routes.RootResource
@@ -43,7 +44,7 @@ fun Route.userRoutes(userService: UserService) {
     }
 
     // GET /api/user/info
-    get<UsersResource> {
+    get<UsersResource.Info> {
         either {
 
             val users = userService.getAll().bind()
