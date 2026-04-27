@@ -1,9 +1,10 @@
+
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "2.1.20"
-    kotlin("plugin.serialization") version "2.1.20"
-    id("io.ktor.plugin") version "3.1.3"
+    kotlin("jvm") version "2.3.20"
+    kotlin("plugin.serialization") version "2.3.20"
+    id("io.ktor.plugin") version "3.4.3"
     application
 }
 
@@ -12,15 +13,15 @@ version = "1.0-SNAPSHOT"
 
 repositories { mavenCentral() }
 
-val ktorVersion      = "3.1.3"
-val exposedVersion   = "0.61.0"
-val postgresVersion  = "42.7.3"
-val arrowVersion     = "2.1.2"
-val kotestVersion = "5.9.2"
-val testcontainersVersion = "1.19.7"
-val hikariVersion = "5.1.0"
-val flywayVersion = "9.22.0"
-val logbackVersion = "1.5.6"
+val ktorVersion      = "3.4.3"
+val exposedVersion   = "1.2.0"
+val postgresVersion  = "42.7.10"
+val arrowVersion     = "2.2.2.1"
+val kotestVersion = "6.1.11"
+val testcontainersVersion = "2.0.5"
+val hikariVersion = "7.0.2"
+val flywayVersion = "12.4.0"
+val logbackVersion = "1.5.32"
 val kotlinCoroutinesVersion = "1.10.2"
 
 dependencies {
@@ -40,6 +41,8 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
     implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-kotlin-datetime:$exposedVersion")
+
     implementation("org.postgresql:postgresql:$postgresVersion")
     implementation("com.zaxxer:HikariCP:$hikariVersion")
     implementation("org.flywaydb:flyway-core:$flywayVersion")

@@ -5,5 +5,5 @@ pluginManagement {
     }
 }
 
-rootProject.name = "warehouse-backend"
+rootProject.name = "senior-care-backend"
 

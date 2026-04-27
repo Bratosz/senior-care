@@ -7,25 +7,13 @@ import pl.bratosz.seniorcarebackend.modules.user.UserPersistence
 import pl.bratosz.seniorcarebackend.shared.error.PersistenceError
 
 interface UserRepository {
-    fun create(user: RegisterUser): Either<PersistenceError, UserId>
 
-    fun getAll(): Either<PersistenceError, List<User>>
+    suspend fun save(user: User): User
+    suspend fun update(user: User): User
+    suspend fun delete(id: UserId): Boolean
 
-    fun getUserFromEmail(email: String): Either<PersistenceError, User>
-    fun update(userId: UserId, updatedFields: Map<EditableField, String>): Either<PersistenceError, Unit>
-}
+    suspend fun findByEmail(email: UserEmail): User?
+    suspend fun findAll(): List<User>
 
-fun userRepository(userPersistence: UserPersistence) = object : UserRepository {
-
-    override fun create(user: RegisterUser): Either<PersistenceError, UserId> =
-        userPersistence.insertUser(user)
-
-    override fun getAll(): Either<PersistenceError, List<User>> =
-        userPersistence.getAllUsers()
-
-    override fun getUserFromEmail(email: String): Either<PersistenceError, User> =
-        userPersistence.getUserFromEmail(email)
-
-    override fun update(userId: UserId, updatedFields: Map<EditableField, String>): Either<PersistenceError, Unit> =
-        userPersistence.updateUser(userId, updatedFields)
+    suspend fun existsByEmail(email: UserEmail): Boolean
 }
