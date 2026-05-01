@@ -1,7 +1,8 @@
 package pl.bratosz.seniorcarebackend.modules.user.domain
 
-import pl.bratosz.seniorcarebackend.shared.Email
-import pl.bratosz.seniorcarebackend.shared.Name
+import arrow.core.Either
+import arrow.core.raise.either
+import arrow.core.raise.ensure
 import kotlin.time.Instant
 import kotlin.uuid.Uuid
 
@@ -37,7 +38,7 @@ data class User(
                 }
 
                 User(
-                    id = UserId(UUID.randomUUID()),
+                    id = UserId(Uuid),
                     email = email,
                     firstName = normalizedFirstName,
                     lastName = normalizedLastName,

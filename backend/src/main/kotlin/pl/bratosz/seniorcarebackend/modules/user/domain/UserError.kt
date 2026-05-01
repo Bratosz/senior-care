@@ -1,5 +1,7 @@
 package pl.bratosz.seniorcarebackend.modules.user.domain
 
+import pl.bratosz.seniorcarebackend.shared.kernel.AppError
+
 sealed interface UserError : AppError {
 
     data object NotFound : UserError {

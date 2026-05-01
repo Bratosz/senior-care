@@ -1,7 +1,22 @@
 pluginManagement {
+    val ktorVersion: String by settings
+    val kotlinVersion: String by settings
+
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
     plugins {
-        id("io.ktor.plugin") version "3.1.3"
-        kotlin("jvm") version "2.1.20"
+        kotlin("jvm") version kotlinVersion
+        kotlin("plugin.serialization") version kotlinVersion
+        id("io.ktor.plugin") version ktorVersion
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenCentral()
     }
 }
 

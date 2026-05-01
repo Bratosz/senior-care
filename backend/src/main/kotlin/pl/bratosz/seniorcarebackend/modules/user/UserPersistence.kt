@@ -19,25 +19,10 @@ import pl.bratosz.seniorcarebackend.modules.user.UserTable.firstName
 import pl.bratosz.seniorcarebackend.modules.user.UserTable.hashedPassword
 import pl.bratosz.seniorcarebackend.modules.user.UserTable.id
 import pl.bratosz.seniorcarebackend.modules.user.UserTable.lastName
-import pl.bratosz.seniorcarebackend.modules.user.domain.HashedPassword
+
 import pl.bratosz.seniorcarebackend.modules.user.domain.User
 import pl.bratosz.seniorcarebackend.modules.user.domain.UserId
 
-object UserTable : LongIdTable() {
-    val firstName: Column<String> = text("first_name")
-    val lastName: Column<String> = text("last_name")
-    val email: Column<String> = text("email")
-    val hashedPassword: Column<String> = text("password")
-}
-
-interface UserPersistence {
-    fun getAllUsers(): Either<PersistenceError, List<User>>
-
-    fun getUserFromEmail(email: String): Either<PersistenceError, User>
-
-    fun insertUser(user: RegisterUser): Either<PersistenceError, UserId>
-    fun updateUser(userId: UserId, updatedFields: Map<EditableField, String>): Either<PersistenceError, Unit>
-}
 
 fun userPersistence(userTable: UserTable) = object : UserPersistence {
 
